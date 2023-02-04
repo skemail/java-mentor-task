@@ -1,6 +1,6 @@
 package com.cydeo;
 
-public class Q1 {
+public class Animal_Feast {
 
     public static void main(String[] args) {
 

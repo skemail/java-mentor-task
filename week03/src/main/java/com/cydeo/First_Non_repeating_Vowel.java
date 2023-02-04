@@ -2,7 +2,7 @@ package com.cydeo;
 
 import java.util.*;
 
-public class Q2 {
+public class First_Non_repeating_Vowel {
 
     public static void main(String[] args) {
         System.out.println(firstNonRepeatingVowel("googlee"));
