@@ -1,6 +1,7 @@
 package com.cydeo;
 
 import java.util.function.Function;
+import java.util.stream.Stream;
 
 public class Jaden_Casing {
 
@@ -21,14 +22,14 @@ public class Jaden_Casing {
     public static void main(String[] args) {
 
         Function<String,String> casting = str ->{
-            String result =" ";
+            String result ="";
             for (String eachWord : str.split(" ")) {
                 result+= eachWord.substring(0,1).toUpperCase().concat(eachWord.substring(1).toLowerCase())+" ";
             }
-            return result;
+            return result.trim();
         };
 
-
         System.out.println(casting.apply("How can mirrors be real if our eyes aren't real"));
+
     }
 }

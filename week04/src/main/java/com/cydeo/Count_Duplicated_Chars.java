@@ -1,7 +1,6 @@
 package com.cydeo;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 
 public class Count_Duplicated_Chars {
@@ -45,12 +44,47 @@ public class Count_Duplicated_Chars {
             return result;
         };
 
-        System.out.println(countDuplicatedChar.apply("abcde"));
-        System.out.println(countDuplicatedChar.apply("aabbcde"));
-        System.out.println(countDuplicatedChar.apply("aabBcde"));
-        System.out.println(countDuplicatedChar.apply("indivisibility"));
-        System.out.println(countDuplicatedChar.apply("Indivisibilities"));
-        System.out.println(countDuplicatedChar.apply("aA11"));
-        System.out.println(countDuplicatedChar.apply("ABBA"));
+//        System.out.println(countDuplicatedChar.apply("abcde"));
+//        System.out.println(countDuplicatedChar.apply("aabbcde"));
+//        System.out.println(countDuplicatedChar.apply("aabBcde"));
+//        System.out.println(countDuplicatedChar.apply("indivisibility"));
+//        System.out.println(countDuplicatedChar.apply("Indivisibilities"));
+//        System.out.println(countDuplicatedChar.apply("aA11"));
+//        System.out.println(countDuplicatedChar.apply("ABBA"));
+
+        System.out.println(countDub("abcde"));
+        System.out.println(countDub("aabbcde"));
+        System.out.println(countDub("aabBcde"));
+        System.out.println(countDub("indivisibility"));
+        System.out.println(countDub("Indivisibilities"));
+        System.out.println(countDub("aA11"));
+        System.out.println(countDub("ABBA"));
+
+
+    }
+    private static int countDub(String str){ // Indivisibilities
+        str = str.toUpperCase();
+        int result = 0;
+        Map<Character,Integer> map = new HashMap<>(); // empty
+
+        for(int i = 0; i< str.length(); i++){ // i = 3
+            Character each = str.charAt(i); // each = I
+
+            if(map.containsKey(each)){ //true
+                Integer value = map.get(each); // value = 1
+                map.replace(each, value + 1 ); //
+            }else { // map = {I,2:N,1:D,1}
+                map.put(each,1);
+            }
+        }
+
+        for (Integer value : map.values()) { //map.values() { 2, 1, ,1 ,1 2, 1,1}
+            if(value>1){
+                result = result+1;
+            }
+           // result+=(value>1)?1:0;
+        }
+
+        return result;
     }
 }
